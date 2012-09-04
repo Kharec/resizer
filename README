@@ -2,6 +2,6 @@ Resizer is a little tool written in Bash by Sandro CAZZANIGA, based on ImageMagi
 
 For example:
 
- $ resizer JPG 1024x768 # will resize all of the picture .JPG in 1024x768 inside                        # $(pwd) ;)
+ $ resizer JPG 1024x768 # will resize all of the picture .JPG in 1024x768 inside $(pwd) ;)
 
 Under the GPLv3+, enjoy it!
