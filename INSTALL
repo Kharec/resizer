@@ -1,0 +1,8 @@
+To install resizer on your system, just check that imagemagick is installed and do:
+
+   $ su -
+   Password...
+   # cp bin/resizer /usr/local/bin
+
+
+And it works!
