@@ -1,0 +1,28 @@
+#!/bin/bash
+i=1
+usage='example: ./resizer.sh JPG 1024x768'
+if [[ -z $1 ]]
+then
+  echo $usage
+  exit 1
+fi
+if [[ -z $(ls *.$1) ]]
+then
+  echo "No file found, or bad file type. ($usage)"
+  exit 1
+fi
+echo "$(ls *.$1 | wc -l | awk 'NR==1 {print $1}') file(s)..."
+for file in *.$1
+do
+  echo -n "$i:   $file  -------->  "
+  convert $file -resize $2 $file
+  if [[ $? == 0 ]]
+  then
+    echo "OK."
+  else
+    echo "Error on file $file"
+    exit 1
+  fi
+  ((i++))
+done
+exit 0
