@@ -1,3 +1,7 @@
 Resizer is a little tool written in Bash by Sandro CAZZANIGA, based on ImageMagick. It takes pictures to resize them at a size, and it can handles as pictures as you have in one time.
 
+For example:
+
+ $ resizer JPG 1024x768 # will resize all of the picture inside $(pwd) ;)
+
 Under the GPLv3+, enjoy it!
