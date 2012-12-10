@@ -19,7 +19,7 @@ my $find = File::Find::Rule->new();
 
 $find->file;
 $find->name("*.$extension");
-my @pictures = $find->in("./");
+my @pictures = $find->in($ENV{PWD});
 print("$#pictures files... \n");
 
 foreach my $pic (@pictures) {
