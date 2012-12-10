@@ -1,28 +1,33 @@
-#!/bin/bash
-i=1
-usage='example: ./resizer.sh JPG 1024x768'
-if [[ -z $1 ]]
-then
-  echo $usage
-  exit 1
-fi
-if [[ -z $(ls *.$1) ]]
-then
-  echo "No file found, or bad file type. ($usage)"
-  exit 1
-fi
-echo "$(ls *.$1 | wc -l | awk 'NR==1 {print $1}') file(s)..."
-for file in *.$1
-do
-  echo -n "$i:   $file  -------->  "
-  convert $file -resize $2 $file
-  if [[ $? == 0 ]]
-  then
-    echo "OK."
-  else
-    echo "Error on file $file"
-    exit 1
-  fi
-  ((i++))
-done
-exit 0
+#!/usr/bin/perl -w
+# Made by Sandro CAZZANIGA <cazzaniga.sandro@gmail.com>
+# 09/12/2012
+# Provide a simple tool to resize a lot of picture in one shot
+
+use strict;
+use File::Find::Rule;
+use Imager;
+
+print("Example: $0 JPG 1024x768\n") and exit(1) if (@ARGV != 2);
+
+my $extension = $ARGV[0];
+$ARGV[1] =~ /(\d+)x(\d+)/;
+my ($newSizeX, $newSizeY) = ($1, $2);
+my $i = 0;
+
+my $worker = Imager->new();
+my $find = File::Find::Rule->new();
+
+$find->file;
+$find->name("*.$extension");
+my @pictures = $find->in("./");
+print("$#pictures files... \n");
+
+foreach my $pic (@pictures) {
+    print("$i: $pic\t-> ");
+    $worker->read(file => $pic) or die("Can't read $pic!");
+    my $newImg = $worker->scale(xpixels=>$newSizeX, ypixels=>$newSizeY) or die("Something wrong happened to $pic!");
+    print("OK\n");
+    $i++;
+}
+
+exit(0);
