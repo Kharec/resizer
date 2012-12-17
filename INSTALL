@@ -1,4 +1,4 @@
-To install resizer on your system, just check that imagemagick is installed and do:
+To install resizer on your system, just check that Imager and Find::File::Rule is installed and do:
 
    $ su -
    Password...
