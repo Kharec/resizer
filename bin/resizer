@@ -12,7 +12,8 @@ print("Example: $0 JPG 1024x768\n") and exit(1) if (@ARGV != 2);
 my $extension = $ARGV[0];
 $ARGV[1] =~ /(\d+)x(\d+)/;
 my ($newSizeX, $newSizeY) = ($1, $2);
-my $i = 0;
+
+my $i = 1;
 
 my $worker = Imager->new();
 my $find = File::Find::Rule->new();
@@ -23,9 +24,9 @@ my @pictures = $find->in($ENV{PWD});
 print("$#pictures files... \n");
 
 foreach my $pic (@pictures) {
-    print("$i: $pic\t-> ");
-    $worker->read(file => $pic) or die("Can't read $pic!");
-    my $newImg = $worker->scale(xpixels=>$newSizeX, ypixels=>$newSizeY) or die("Something wrong happened to $pic!");
+    print("$i: $pic => ");
+    my $img = $worker->read(file => $pic) or die("Can't read $pic!");
+    $img->scale(xpixels=>$newSizeX, ypixels=>$newSizeY) or die("Something wrong happened to $pic!");
     print("OK\n");
     $i++;
 }
