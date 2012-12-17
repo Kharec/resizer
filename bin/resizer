@@ -26,7 +26,7 @@ print("$#pictures files... \n");
 foreach my $pic (@pictures) {
     print("$i: $pic => ");
     my $img = $worker->read(file => $pic) or die("Can't read $pic!");
-    my $newimg = $img->scale(xpixels=>$newSizeX, ypixels=>$newSizeY);
+    my $newImg = $img->scale(xpixels=>$newSizeX, ypixels=>$newSizeY);
     $newImg->write(file => $pic) or die("Something wrong happened to $pic!");
     print("OK\n");
     $i++;
