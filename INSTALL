@@ -1,8 +1,7 @@
-To install resizer on your system, just check that Imager and Find::File::Rule is installed and do:
+To install resizer on your system, just check that dependancies are installed and do:
 
-   $ su -
-   Password...
-   # cp bin/resizer /usr/local/bin
-
+   $ perl Makefile.PL
+   $ make
+   # make install
 
 And it works!
