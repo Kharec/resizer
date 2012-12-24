@@ -12,5 +12,5 @@ WriteMakefile(
         'File::Find::Rule' => '0.30',
         'Imager'           => '0.91',
     },
-    VERSION     => '0.01',
+    VERSION     => '0.02',
 );
