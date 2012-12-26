@@ -9,8 +9,7 @@ WriteMakefile(
     LICENSE     => "GPLv3",
     NAME        => "resizer",
     PREREQ_PM   => {
-        'File::Find::Rule' => '0.30',
         'Imager'           => '0.91',
     },
-    VERSION     => '0.02',
+    VERSION     => '0.03',
 );

@@ -4,7 +4,6 @@
 # Provide a simple tool to resize a lot of picture in one shot
 
 use strict;
-use File::Find::Rule;
 use Imager;
 
 my $me = `basename $0`;
@@ -16,13 +15,9 @@ $ARGV[1] =~ /(\d+)x(\d+)/;
 my ($newSizeX, $newSizeY) = ($1, $2);
 
 my $i = 1;
-
 my $worker = Imager->new();
-my $find = File::Find::Rule->new();
 
-$find->file;
-$find->name("*.$extension");
-my @pictures = $find->in($ENV{PWD});
+my @pictures = glob("*.$extension");
 print("$#pictures files... \n");
 
 foreach my $pic (@pictures) {
