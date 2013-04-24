@@ -11,10 +11,9 @@ $me =~ s/\n//g;
 print("Example: $me JPG 1024x768\n") and exit(1) if (@ARGV != 2);
 
 my $extension = $ARGV[0];
-$ARGV[1] =~ /(\d+)x(\d+)/;
-my ($newSizeX, $newSizeY) = ($1, $2);
+my ($newSizeX, $newSizeY) = $ARGV[1] =~ /(\d+)x(\d+)/;
 
-my $i = 0;
+my $i = 1;
 my $worker = Imager->new();
 
 my @pictures = glob("*.$extension");
