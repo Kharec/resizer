@@ -17,7 +17,8 @@ my $i = 1;
 my $worker = Imager->new();
 
 my @pictures = glob("*.$extension");
-print("$#pictures files... \n");
+my $num = $#pictures+1;
+print("$num files... \n");
 
 foreach my $pic (@pictures) {
     print("$i: $pic => ");
