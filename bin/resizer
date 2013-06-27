@@ -14,7 +14,7 @@ my $extension = $ARGV[0];
 my ($newSizeX, $newSizeY) = $ARGV[1] =~ /(\d+)x(\d+)/;
 
 my $i = 1;
-my $worker = Imager->new();
+my $worker = new Imager;
 
 my @pictures = glob("*.$extension");
 my $num = $#pictures+1;
