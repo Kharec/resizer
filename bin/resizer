@@ -6,6 +6,8 @@
 use strict;
 use Imager;
 
+our $VERSION = 1.0;
+
 my $me = `basename $0`;
 $me =~ s/\n//g;
 print("Example: $me JPG 1024x768\n") and exit(1) if (@ARGV != 2);

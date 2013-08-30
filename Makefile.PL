@@ -4,12 +4,11 @@ WriteMakefile(
     ABSTRACT    => "Resize easily all your pictures in one shot",
     AUTHOR      => "Sandro CAZZANIGA",
     DISTNAME    => "resizer",
-    INSTALLBIN  => "/usr/local/bin",
-    INSTALLDIRS => "/usr/local",
+    EXE_FILES   => ["/usr/local/bin"],
     LICENSE     => "GPLv3",
     NAME        => "resizer",
     PREREQ_PM   => {
         'Imager'           => '0.91',
     },
-    VERSION     => '0.03',
+    VERSION_FROM     => 'bin/resizer',
 );
