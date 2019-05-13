@@ -2,6 +2,8 @@ Resizer is a little tool written in Perl by Sandro CAZZANIGA, based on Imager. I
 
 For example:
 
+```bash
  $ resizer JPG 1024x768 # will resize all of the picture .JPG in 1024x768 inside $(pwd) ;)
+```
 
 Under the GPLv3+, enjoy it!
